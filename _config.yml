@@ -19,3 +19,5 @@ title: INI ML Reading Group
 description: The INI ML /ɪˈnɪm(ə)l/ Reading Group is the machine learning reading group at the [Institute of Neural Computation](https://www.ini.rub.de/)  at the [Ruhr-University Bochum](https://www.ruhr-uni-bochum.de/de).
 show_downloads: false
 
+
+theme: jekyll-theme-leap-day
