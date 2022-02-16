@@ -1,6 +1,7 @@
 remote_theme: pages-themes/leap-day@v0.2.0
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
+- jekyll/scholar
 
 # theme: jekyll-theme-leap-day
 
@@ -27,4 +28,9 @@ title: INI ML Reading Group
 description: The INI ML Reading Group is the machine learning reading group at the INI at RUB.
 show_downloads: false
 repository: anandtrex/INI-ML-Reading-Group
+
+scholar:
+  style: elsevier-harvard
+  source: ./
+  bibliography_template: bib
 
