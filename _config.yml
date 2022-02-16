@@ -20,7 +20,9 @@ exclude:
  
 github: [metadata]
 
-url: https://anandtrex.github.io/INI-ML-Reading-Group/
+url: https://anandtrex.github.io/
+baseurl: /INI-ML-Reading-Group
+
 title: INI ML Reading Group
 description: The INI ML Reading Group is the machine learning reading group at the INI at RUB.
 show_downloads: false
