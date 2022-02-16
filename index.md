@@ -20,6 +20,7 @@ Next meeting is on **16.02.2022** at **16:00**.
 
 | Date           | Moderator | Paper                                                                                                                                                                                                          
 | -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| **16.02.2022** | Robin | Goyal, A., Lamb, A., Hoffmann, J., Sodhani, S., Levine, S., Bengio, Y., Schölkopf, B., 2020. Recurrent Independent Mechanisms. Presented at the International Conference on Learning Representations. |
 | **02.02.2022** | David | Zimmermann, H., Wu, H., Esmaeili, B. and van de Meent, J.W., 2021. Nested Variational Inference. arXiv preprint arXiv:2106.11302. |
 |  | Moritz | Girin, L., Leglaive, S., Bie, X., Diard, J., Hueber, T. and Alameda-Pineda, X., 2020. Dynamical variational autoencoders: A comprehensive review. arXiv preprint arXiv:2008.12595. |
 | **21.01.2022** | Anand | Frankle, J. and Carbin, M., 2018. The lottery ticket hypothesis: Finding sparse, trainable neural networks. arXiv preprint arXiv:1803.03635. |
