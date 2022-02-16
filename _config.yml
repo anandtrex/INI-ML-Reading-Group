@@ -30,7 +30,7 @@ show_downloads: false
 repository: anandtrex/INI-ML-Reading-Group
 
 scholar:
-  style: elsevier-harvard
+  style: ./elsevier-harvard.csl
   source: ./
   bibliography_template: bib
 
