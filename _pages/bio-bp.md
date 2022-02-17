@@ -10,6 +10,15 @@ INSTRUCTIONS TO ADD REFERENCES:
 Add references to `bio-bp.bib` file in the root directory in bibtex format and cite here using `{% cite refkey --file bio-bp %}`
 -->
 
+# Context
+
+The following specific setting is considered:
+of doing error backpropagation (through time) where a global loss is defined and may only be available in the future.
+The goal is to update the parameters using gradient descent.
+Most papers here try do credit assignment specifically using backpropagation (through time) or approximations thereof.
+
+The more general setting of biologically plausible learning rules is not considered.
+
 # Some overview resources
 - A discussion of the problem on [psychology.stackexchange](https://psychology.stackexchange.com/questions/16269/is-back-prop-biologically-plausible)
 - Very opinionated and narrow survey papers: {% cite lillicrap_Backpropagation_2019 lillicrap_Backpropagation_2020  --file bio-bp %}.
