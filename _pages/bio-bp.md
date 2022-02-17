@@ -3,8 +3,13 @@ layout: page
 title: Biologically plausible backpropagation
 description: and backpropagation through time
 permalink: /bio-bp/
-meta: Add references to `bio-bp.bib` file in the root directory and cite using `{% cite refkey --file bio-bp %}`
 ---
+
+<!--
+INSTRUCTIONS TO ADD REFERENCES:
+Add references to `bio-bp.bib` file in the root directory in bibtex format and cite here using `{% cite refkey --file bio-bp %}`
+-->
+
 # Some overview resources
 - A discussion of the problem on [psychology.stackexchange](https://psychology.stackexchange.com/questions/16269/is-back-prop-biologically-plausible)
 - Very opinionated and narrow survey papers: {% cite lillicrap_Backpropagation_2019 lillicrap_Backpropagation_2020  --file bio-bp %}.
