@@ -30,7 +30,6 @@ permalink: /bio-bp/
 - Truncated BPTT can be approximated with SnAp>2 {% cite menick_Practical_2020 --file bio-bp %}
 - Nice overview of various approximations to BPTT, biologically plausible and otherwise {% cite marschall_Unified_2019 --file bio-bp %}
 
-{% cite %}
 ## Papers that solve ❶ and ❷
 - Local approximations of RTRL + DFA: 
     - RFLO  {% cite murray_Local_2019 --file bio-bp %} for sigmoidal RNNs.
