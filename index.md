@@ -1,16 +1,18 @@
 ---
-title: INI ML Reading Group
+title: RUB ML Reading Group
 ---
 
-# INI ML Reading Group
-The INI ML /ɪˈnɪm(ə)l/ Reading Group is the machine learning reading group at the [Institute of Neural Computation](https://www.ini.rub.de/)  at the [Ruhr-University Bochum](https://www.ruhr-uni-bochum.de/de).
+# RUB ML Reading Group
+The RUB ML Reading Group is the machine learning reading group at the [Ruhr-University Bochum](https://www.ruhr-uni-bochum.de/de) organized by the [Institute of Neural Computation](https://www.ini.rub.de/).
 We meet once in two weeks to informally discuss machine learning and deep learning papers that are related to our research, of general interest, or just some paper one of us found cool.
 
 Currently this happens (mostly) on Wednesdays at 16:00 virtually on Zoom.
 
-If you would like to attend the meeting please contact `anand.subramoney [at] ini.rub.de`.
+If you would like to attend the meetings, subscribe to the [ML Reading Group mailing list](https://lists.ruhr-uni-bochum.de/mailman/listinfo/ml-reading-group) for event announcements.
 
-Next meeting is on **16.02.2022** at **16:00**.
+To update this page, please send a pull request on the [Github Repository](https://github.com/anandtrex/INI-ML-Reading-Group).
+
+Next meeting is scheduled for **02.03.2022** at **16:00**.
 
 ## Wishlist
 * {% reference richthofer2017pfax %}
