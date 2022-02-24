@@ -42,9 +42,9 @@ The more general setting of biologically plausible learning rules is not conside
 - Broadcast alignment (BA) {% cite samadi_Deep_2017 --file bio-bp %} broadcasts errors to all layers, essentially same as DFA.
 
 ## Papers that solve ❷ but not ❶
-- For recurrent networks, BPTT can be implemented as forward-mode differentiation, called RTRL {% cite williams_Learning_1989 --file bio-bp %}
-- Truncated BPTT can be approximated with SnAp>2 {% cite menick_Practical_2020 --file bio-bp %}
-- Nice overview of various approximations to BPTT, biologically plausible and otherwise {% cite marschall_Unified_2019 --file bio-bp %}
+- For recurrent networks, BPTT can be implemented as forward-mode differentiation, called RTRL {% cite williams_Learning_1989 --file bio-bp %}, but computationally very expensive.
+- Truncated BPTT can be approximated with SnAp>2 {% cite menick_Practical_2020 --file bio-bp %}, allows tradeoff between computation and memory in forward-mode differentiation.
+- Nice overview of various approximations to BPTT, biologically plausible and otherwise {% cite marschall_Unified_2019 --file bio-bp %}, integrated into a single theoretical formulation.
 
 ## Papers that solve ❶ and ❷
 - Local approximations of RTRL + DFA: 
