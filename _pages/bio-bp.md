@@ -22,7 +22,7 @@ The more general setting of biologically plausible learning rules is not conside
 # Some overview resources
 - A discussion of the problem on [psychology.stackexchange](https://psychology.stackexchange.com/questions/16269/is-back-prop-biologically-plausible)
 - Very opinionated and narrow survey papers: {% cite lillicrap_Backpropagation_2019 lillicrap_Backpropagation_2020  --file bio-bp %}.
-- A review focussing on predictive coding approximating backprop: {% cite whittington_Theories_2019 %}.
+- A review focussing on predictive coding approximating backprop: {% cite whittington_Theories_2019 --file bio-bp %}.
 
 # Main problems:
 
