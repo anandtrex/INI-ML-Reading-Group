@@ -17,11 +17,16 @@ Next meeting is scheduled for **02.03.2022** at **16:00**.
 ## Wishlist
 * {% reference richthofer2017pfax %}
 * {% reference wiskott2002slow %}
+* {% reference khan_bayesian_2022 %}
+* {% reference zhou_fortuitous_2022 %}
+* {% reference lambert_variational_2022 %}
+* {% reference mediano_greater_2021 %}
 
 ## Past meetings
 
 | Date           | Moderator | Paper                                                                                                                                                                                                          
 | -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| **11.05.2022** | Jan | {% reference seth_theories_2022 %} |
 | **16.02.2022** | Robin | {% reference goyal_Recurrent_2020a %} |
 | **02.02.2022** | David | {% reference zimmermann2021nested %} |
 |  | Moritz | {% reference girin2020dynamical %} |
