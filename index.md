@@ -27,6 +27,7 @@ Next meeting is scheduled for **02.03.2022** at **16:00**.
 | Date           | Moderator | Paper                                                                                                                                                                                                          
 | -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | **11.05.2022** | Jan | {% reference seth_theories_2022 %} |
+| **13.04.2022** | Zahra | {% reference ramesh_hierarchical_2022 %} |
 | **16.02.2022** | Robin | {% reference goyal_Recurrent_2020a %} |
 | **02.02.2022** | David | {% reference zimmermann2021nested %} |
 |  | Moritz | {% reference girin2020dynamical %} |
