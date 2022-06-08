@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Biologically plausible backpropagation | INI ML Reading Group</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Biologically plausible backpropagation" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="and backpropagation through time" />
+<meta property="og:description" content="and backpropagation through time" />
+<link rel="canonical" href="https://anandtrex.github.io/INI-ML-Reading-Group/bio-bp/" />
+<meta property="og:url" content="https://anandtrex.github.io/INI-ML-Reading-Group/bio-bp/" />
+<meta property="og:site_name" content="INI ML Reading Group" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Biologically plausible backpropagation" />
+<script type="application/ld+json">
+{"description":"and backpropagation through time","@type":"WebPage","url":"https://anandtrex.github.io/INI-ML-Reading-Group/bio-bp/","headline":"Biologically plausible backpropagation","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/INI-ML-Reading-Group/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/INI-ML-Reading-Group/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/INI-ML-Reading-Group/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Biologically plausible backpropagation</h1>
+        <p>and backpropagation through time</p>
+      </header>
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <!--
+INSTRUCTIONS TO ADD REFERENCES:
+Add references to `bio-bp.bib` file in the root directory in bibtex format and cite here using `(missing reference)`
+-->
+
+<h1 id="context">Context</h1>
+
+<p>The following specific setting is considered:
+of doing error backpropagation (through time) where a global loss is defined and may only be available in the future.
+The goal is to update the parameters using gradient descent.
+Most papers here try do credit assignment specifically using backpropagation (through time) or approximations thereof.</p>
+
+<p>The more general setting of biologically plausible learning rules is not considered.</p>
+
+<h1 id="some-overview-resources">Some overview resources</h1>
+<ul>
+  <li>A discussion of the problem on <a href="https://psychology.stackexchange.com/questions/16269/is-back-prop-biologically-plausible">psychology.stackexchange</a></li>
+  <li>Very opinionated and narrow survey papers: <a class="citation" href="#lillicrap_Backpropagation_2019">(Lillicrap and Santoro, 2019; Lillicrap et al., 2020)</a>.</li>
+  <li>A review focussing on predictive coding approximating backprop: <a class="citation" href="#whittington_Theories_2019">(Whittington and Bogacz, 2019)</a>.</li>
+</ul>
+
+<h1 id="main-problems">Main problems:</h1>
+
+<p>❶ Weight transport problem, synaptic symmetry</p>
+
+<p>❷ Backward pass, memory</p>
+
+<p>❸ Correspondence to actual neural circuitry</p>
+
+<p>❹ Online learning, Catastrophic forgetting etc.</p>
+
+<h1 id="solutions">Solutions</h1>
+
+<h2 id="papers-that-solve--but-not-">Papers that solve ❶ but not ❷</h2>
+<ul>
+  <li>Random feedback alignment <a class="citation" href="#lillicrap_Random_2016">(Lillicrap et al., 2016)</a> solves ❶ layer-wise,</li>
+  <li>Direct feedback alignment (DFA) <a class="citation" href="#nokland_Direct_2016">(Nøkland, 2016)</a> is layer agnostic, broadcasts errors to all layers.</li>
+  <li>Broadcast alignment (BA) <a class="citation" href="#samadi_Deep_2017">(Samadi et al., 2017)</a> broadcasts errors to all layers, essentially same as DFA.</li>
+</ul>
+
+<h2 id="papers-that-solve--but-not--1">Papers that solve ❷ but not ❶</h2>
+<ul>
+  <li>For recurrent networks, BPTT can be implemented as forward-mode differentiation, called RTRL <a class="citation" href="#williams_Learning_1989">(Williams and Zipser, 1989)</a>, but computationally very expensive.</li>
+  <li>Truncated BPTT can be approximated with SnAp&gt;2 <a class="citation" href="#menick_Practical_2020">(Menick et al., 2020)</a>, allows tradeoff between computation and memory in forward-mode differentiation.</li>
+  <li>Nice overview of various approximations to BPTT, biologically plausible and otherwise <a class="citation" href="#marschall_Unified_2019">(Marschall et al., 2019)</a>, integrated into a single theoretical formulation.</li>
+</ul>
+
+<h2 id="papers-that-solve--and-">Papers that solve ❶ and ❷</h2>
+<ul>
+  <li>Local approximations of RTRL + DFA:
+    <ul>
+      <li>RFLO  <a class="citation" href="#murray_Local_2019">(Murray, 2019)</a> for sigmoidal RNNs.</li>
+      <li>e-prop  <a class="citation" href="#bellec_solution_2020">(Bellec et al., 2020)</a> is a more general formulation but applied to spiking neurons.</li>
+      <li>SnAp-1 is equivalent to e-prop without DFA <a class="citation" href="#menick_Practical_2020">(Menick et al., 2020)</a>.</li>
+    </ul>
+  </li>
+  <li>Synthetic gradients <a class="citation" href="#jaderberg_Decoupled_2016">(Jaderberg et al., 2016)</a> learns separate networks to predict feedback signals.</li>
+</ul>
+
+<h1 id="others">Others</h1>
+<ul>
+  <li>Target propagation <a class="citation" href="#bengio2014auto">(Bengio, 2014; Bengio and Fischer, 2015; Scellier and Bengio, 2016)</a> but see <a class="citation" href="#meulemans2020theoretical">(Meulemans et al., 2020)</a></li>
+  <li>Difference target propagation <a class="citation" href="#lee2015difference">(Lee et al., 2015)</a></li>
+  <li>Equilibrium propagation <a class="citation" href="#scellier_Equilibrium_2017">(Scellier and Bengio, 2017; Scellier and Bengio, 2018)</a></li>
+  <li>Latent equilibrium <a class="citation" href="#haider2021latent">(Haider et al., 2021)</a></li>
+  <li>Using dendrites to propagate errors <a class="citation" href="#sacramento_Dendritic_2018">(Sacramento et al., 2018; Guerguiev et al., 2017)</a> but require specific circuit motifs.</li>
+  <li>Predictive coding networks do exact backprop <a class="citation" href="#song2020can">(Song et al., 2020)</a></li>
+  <li>Fixed weight RNNs can learn (but may not be BP)  <a class="citation" href="#cotter_Fixedweight_1990">(Cotter and Conwell, 1990; Hochreiter et al., 2001)</a></li>
+  <li>Can meta-learn backprop <a class="citation" href="#kirsch2021meta">(Kirsch and Schmidhuber, 2021)</a></li>
+</ul>
+
+<h1 id="references">References</h1>
+
+<ol class="bibliography"><li><span id="lillicrap_Backpropagation_2019">Lillicrap, T.P., Santoro, A., 2019. Backpropagation through Time and the Brain. Current Opinion in Neurobiology, Machine Learning, Big Data, and Neuroscience 55, 82–89. https://doi.org/10.1016/j.conb.2019.01.011 (<a href="http://www.sciencedirect.com/science/article/pii/S0959438818302009">URL</a>)</span>
+<!-- 
+    <a href="http://www.sciencedirect.com/science/article/pii/S0959438818302009">(url)</a>
+ -->
+
+</li>
+<li><span id="lillicrap_Backpropagation_2020">Lillicrap, T.P., Santoro, A., Marris, L., Akerman, C.J., Hinton, G., 2020. Backpropagation and the Brain. Nature Reviews Neuroscience 1–12. https://doi.org/10.1038/s41583-020-0277-3 (<a href="https://www.nature.com/articles/s41583-020-0277-3">URL</a>)</span>
+<!-- 
+    <a href="https://www.nature.com/articles/s41583-020-0277-3">(url)</a>
+ -->
+
+</li>
+<li><span id="whittington_Theories_2019">Whittington, J.C.R., Bogacz, R., 2019. Theories of Error Back-Propagation in the Brain. Trends in Cognitive Sciences 23, 235–250. https://doi.org/10.1016/j.tics.2018.12.005 (<a href="https://www.cell.com/trends/cognitive-sciences/abstract/S1364-6613(19)30012-9">URL</a>)</span>
+<!-- 
+    <a href="https://www.cell.com/trends/cognitive-sciences/abstract/S1364-6613(19)30012-9">(url)</a>
+ -->
+
+</li>
+<li><span id="lillicrap_Random_2016">Lillicrap, T.P., Cownden, D., Tweed, D.B., Akerman, C.J., 2016. Random Synaptic Feedback Weights Support Error Backpropagation for Deep Learning. Nature Communications 7, 13276. https://doi.org/10.1038/ncomms13276 (<a href="http://www.nature.com/ncomms/2016/161108/ncomms13276/full/ncomms13276.html">URL</a>)</span>
+<!-- 
+    <a href="http://www.nature.com/ncomms/2016/161108/ncomms13276/full/ncomms13276.html">(url)</a>
+ -->
+
+</li>
+<li><span id="nokland_Direct_2016">Nøkland, A., 2016. Direct Feedback Alignment Provides Learning in Deep Neural Networks. arXiv:1609.01596 [cs, stat]. (<a href="http://arxiv.org/abs/1609.01596">URL</a>)</span>
+<!-- 
+    <a href="http://arxiv.org/abs/1609.01596">(url)</a>
+ -->
+
+</li>
+<li><span id="samadi_Deep_2017">Samadi, A., Lillicrap, T.P., Tweed, D.B., 2017. Deep Learning with Dynamic Spiking Neurons and Fixed Feedback Weights. Neural Computation 29, 578–602. https://doi.org/10.1162/NECO_a_00929 (<a href="https://doi.org/10.1162/NECO_a_00929">URL</a>)</span>
+<!-- 
+    <a href="https://doi.org/10.1162/NECO_a_00929">(url)</a>
+ -->
+
+</li>
+<li><span id="williams_Learning_1989">Williams, R.J., Zipser, D., 1989. A Learning Algorithm for Continually Running Fully Recurrent Neural Networks. Neural Computation 1, 270–280. https://doi.org/10.1162/neco.1989.1.2.270 (<a href="https://doi.org/10.1162/neco.1989.1.2.270">URL</a>)</span>
+<!-- 
+    <a href="https://doi.org/10.1162/neco.1989.1.2.270">(url)</a>
+ -->
+
+</li>
+<li><span id="menick_Practical_2020">Menick, J., Elsen, E., Evci, U., Osindero, S., Simonyan, K., Graves, A., 2020. Practical Real Time Recurrent Learning with a Sparse Approximation, in: International Conference on Learning Representations. (<a href="https://openreview.net/forum?id=q3KSThy2GwB">URL</a>)</span>
+<!-- 
+    <a href="https://openreview.net/forum?id=q3KSThy2GwB">(url)</a>
+ -->
+
+</li>
+<li><span id="marschall_Unified_2019">Marschall, O., Cho, K., Savin, C., 2019. A Unified Framework of Online Learning Algorithms for Training Recurrent Neural Networks. arXiv:1907.02649 [cs, q-bio, stat]. (<a href="http://arxiv.org/abs/1907.02649">URL</a>)</span>
+<!-- 
+    <a href="http://arxiv.org/abs/1907.02649">(url)</a>
+ -->
+
+</li>
+<li><span id="murray_Local_2019">Murray, J.M., 2019. Local Online Learning in Recurrent Networks with Random Feedback. eLife 8, e43299. https://doi.org/10.7554/eLife.43299 (<a href="https://doi.org/10.7554/eLife.43299">URL</a>)</span>
+<!-- 
+    <a href="https://doi.org/10.7554/eLife.43299">(url)</a>
+ -->
+
+</li>
+<li><span id="bellec_solution_2020">Bellec, G., Scherr, F., Subramoney, A., Hajek, E., Salaj, D., Legenstein, R., Maass, W., 2020. A Solution to the Learning Dilemma for Recurrent Networks of Spiking Neurons. Nature Communications 11, 3625. https://doi.org/10.1038/s41467-020-17236-y (<a href="https://www.nature.com/articles/s41467-020-17236-y">URL</a>)</span>
+<!-- 
+    <a href="https://www.nature.com/articles/s41467-020-17236-y">(url)</a>
+ -->
+
+</li>
+<li><span id="jaderberg_Decoupled_2016">Jaderberg, M., Czarnecki, W.M., Osindero, S., Vinyals, O., Graves, A., Silver, D., Kavukcuoglu, K., 2016. Decoupled Neural Interfaces Using Synthetic Gradients. arXiv:1608.05343 [cs]. (<a href="http://arxiv.org/abs/1608.05343">URL</a>)</span>
+<!-- 
+    <a href="http://arxiv.org/abs/1608.05343">(url)</a>
+ -->
+
+</li>
+<li><span id="bengio2014auto">Bengio, Y., 2014. How auto-encoders could provide credit assignment in deep networks via target propagation. arXiv preprint arXiv:1407.7906.</span>
+<!--  -->
+
+</li>
+<li><span id="bengio_Early_2015">Bengio, Y., Fischer, A., 2015. Early Inference in Energy-Based Models Approximates Back-Propagation. arXiv:1510.02777 [cs]. (<a href="http://arxiv.org/abs/1510.02777">URL</a>)</span>
+<!-- 
+    <a href="http://arxiv.org/abs/1510.02777">(url)</a>
+ -->
+
+</li>
+<li><span id="scellier_Biologically_2016">Scellier, B., Bengio, Y., 2016. Towards a Biologically Plausible Backprop. arXiv:1602.05179 [cs]. (<a href="http://arxiv.org/abs/1602.05179">URL</a>)</span>
+<!-- 
+    <a href="http://arxiv.org/abs/1602.05179">(url)</a>
+ -->
+
+</li>
+<li><span id="meulemans2020theoretical">Meulemans, A., Carzaniga, F., Suykens, J., Sacramento, J., Grewe, B.F., 2020. A theoretical framework for target propagation. Advances in Neural Information Processing Systems 33, 20024–20036.</span>
+<!--  -->
+
+</li>
+<li><span id="lee2015difference">Lee, D.-H., Zhang, S., Fischer, A., Bengio, Y., 2015. Difference target propagation, in: Joint European Conference on Machine Learning and Knowledge Discovery in Databases. Springer, pp. 498–515.</span>
+<!--  -->
+
+</li>
+<li><span id="scellier_Equilibrium_2017">Scellier, B., Bengio, Y., 2017. Equilibrium Propagation: Bridging the Gap between Energy-Based Models and Backpropagation. Frontiers in Computational Neuroscience 11. https://doi.org/10.3389/fncom.2017.00024 (<a href="https://www.frontiersin.org/articles/10.3389/fncom.2017.00024/full">URL</a>)</span>
+<!-- 
+    <a href="https://www.frontiersin.org/articles/10.3389/fncom.2017.00024/full">(url)</a>
+ -->
+
+</li>
+<li><span id="scellier_Equivalence_2018">Scellier, B., Bengio, Y., 2018. Equivalence of Equilibrium Propagation and Recurrent Backpropagation. Neural Computation 31, 312–329. https://doi.org/10.1162/neco_a_01160 (<a href="https://doi.org/10.1162/neco_a_01160">URL</a>)</span>
+<!-- 
+    <a href="https://doi.org/10.1162/neco_a_01160">(url)</a>
+ -->
+
+</li>
+<li><span id="haider2021latent">Haider, P., Ellenberger, B., Kriener, L., Jordan, J., Senn, W., Petrovici, M., 2021. Latent Equilibrium: Arbitrarily fast computation with arbitrarily slow neurons. Advances in Neural Information Processing Systems 34.</span>
+<!--  -->
+
+</li>
+<li><span id="sacramento_Dendritic_2018">Sacramento, J., Ponte Costa, R., Bengio, Y., Senn, W., 2018. Dendritic Cortical Microcircuits Approximate the Backpropagation Algorithm, in: Bengio, S., Wallach, H., Larochelle, H., Grauman, K., Cesa-Bianchi, N., Garnett, R. (Eds.), Advances in Neural Information Processing Systems 31. Curran Associates, Inc., pp. 8721–8732. (<a href="http://papers.nips.cc/paper/8089-dendritic-cortical-microcircuits-approximate-the-backpropagation-algorithm.pdf">URL</a>)</span>
+<!-- 
+    <a href="http://papers.nips.cc/paper/8089-dendritic-cortical-microcircuits-approximate-the-backpropagation-algorithm.pdf">(url)</a>
+ -->
+
+</li>
+<li><span id="guerguiev2017towards">Guerguiev, J., Lillicrap, T.P., Richards, B.A., 2017. Towards deep learning with segregated dendrites. ELife 6, e22901.</span>
+<!--  -->
+
+</li>
+<li><span id="song2020can">Song, Y., Lukasiewicz, T., Xu, Z., Bogacz, R., 2020. Can the Brain Do Backpropagation?—Exact Implementation of Backpropagation in Predictive Coding Networks. Advances in neural information processing systems 33, 22566–22579.</span>
+<!--  -->
+
+</li>
+<li><span id="cotter_Fixedweight_1990">Cotter, N.E., Conwell, P.R., 1990. Fixed-Weight Networks Can Learn, in: 1990 IJCNN International Joint Conference on Neural Networks. pp. 553–559 vol.3. https://doi.org/10.1109/IJCNN.1990.137898</span>
+<!--  -->
+
+</li>
+<li><span id="hochreiter_Learning_2001">Hochreiter, S., Younger, A.S., Conwell, P.R., 2001. Learning to Learn Using Gradient Descent, in: Artificial Neural Networks — ICANN 2001. Springer, Berlin, Heidelberg, pp. 87–94. https://doi.org/10.1007/3-540-44668-0_13 (<a href="http://link.springer.com/chapter/10.1007/3-540-44668-0_13">URL</a>)</span>
+<!-- 
+    <a href="http://link.springer.com/chapter/10.1007/3-540-44668-0_13">(url)</a>
+ -->
+
+</li>
+<li><span id="kirsch2021meta">Kirsch, L., Schmidhuber, J., 2021. Meta learning backpropagation and improving it. Advances in Neural Information Processing Systems 34.</span>
+<!--  -->
+
+</li></ol>
+
+
+      </section>
+      <footer>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+  </body>
+</html>
