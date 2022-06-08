@@ -12,8 +12,6 @@ If you would like to attend the meetings, subscribe to the [ML Reading Group mai
 
 To update this page, please send a pull request on the [Github Repository](https://github.com/anandtrex/INI-ML-Reading-Group).
 
-Next meeting is scheduled for **02.03.2022** at **16:00**.
-
 ## Wishlist
 * {% reference richthofer2017pfax %}
 * {% reference wiskott2002slow %}
