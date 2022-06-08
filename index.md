@@ -21,12 +21,16 @@ Next meeting is scheduled for **02.03.2022** at **16:00**.
 * {% reference zhou_fortuitous_2022 %}
 * {% reference lambert_variational_2022 %}
 * {% reference mediano_greater_2021 %}
+* {% reference reed_generalist_2022 %}
+
 
 ## Past meetings
 
-| Date           | Moderator | Paper                                                                                                                                                                                                          
+| Date           | Moderator | Paper                                                                                                                                                                                                     
 | -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | **11.05.2022** | Jan | {% reference seth_theories_2022 %} |
+| **13.04.2022** | Zahra | {% reference ramesh_hierarchical_2022 %} |
+| **30.03.2022** | Moritz | {% locatello_challenging_2019 %} |
 | **16.02.2022** | Robin | {% reference goyal_Recurrent_2020a %} |
 | **02.02.2022** | David | {% reference zimmermann2021nested %} |
 |  | Moritz | {% reference girin2020dynamical %} |
